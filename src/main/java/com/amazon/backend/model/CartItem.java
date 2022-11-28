@@ -1,5 +1,4 @@
-package com.amazon.backend.model.cart;
-
+package com.amazon.backend.model;
 import com.amazon.backend.model.Product;
 import com.amazon.backend.model.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;

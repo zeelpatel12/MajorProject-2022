@@ -1,7 +1,7 @@
 package com.amazon.backend.model;
 
-import com.amazon.backend.model.cart.CartItem;
-import com.amazon.backend.model.cart.CartItemPK;
+import com.amazon.backend.model.CartItem;
+import com.amazon.backend.model.CartItemPK;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;

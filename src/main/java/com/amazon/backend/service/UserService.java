@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import com.amazon.backend.exceptions.UserNotFoundException;
 import com.amazon.backend.model.Product;
 import com.amazon.backend.model.User;
-import com.amazon.backend.model.cart.CartItem;
+
 import com.amazon.backend.repo.UserRepository;
 
 import javax.transaction.Transactional;

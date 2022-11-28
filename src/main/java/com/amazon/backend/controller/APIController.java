@@ -9,11 +9,12 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import com.amazon.backend.config.JwtUtil;
+import com.amazon.backend.model.CartItem;
+import com.amazon.backend.model.CartItemPK;
 import com.amazon.backend.model.Category;
 import com.amazon.backend.model.Product;
 import com.amazon.backend.model.User;
-import com.amazon.backend.model.cart.CartItem;
-import com.amazon.backend.model.cart.CartItemPK;
+
 import com.amazon.backend.service.CartItemService;
 import com.amazon.backend.service.CategoryService;
 import com.amazon.backend.service.JwtUserDetailsService;
