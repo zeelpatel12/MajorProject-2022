@@ -75,8 +75,14 @@ public class APIController {
     @GetMapping("/users/{id}")
     public ResponseEntity<User> getUser (@PathVariable("id") Long id) {
         return new ResponseEntity<>(userService.getUser(id), HttpStatus.OK);
-    }
+    }    
 
+//    @GetMapping("/userRoleByID/{id}")
+//    public ResponseEntity<String> getUserById(@PathVariable("id") Long id){
+//    	return new ResponseEntity<String>(userService.getUser(id).getRole(),HttpStatus.OK);
+//  
+//    }
+    
     @PutMapping("/users/{id}")
     public ResponseEntity<User> updateUser (@PathVariable("id") Long id, @RequestBody Map<String, Object> user) {
         User newUser = new User(
@@ -85,7 +91,8 @@ public class APIController {
                 (String) user.get("email"),
                 (String) user.get("name"),
                 (String) user.get("address"),
-                (String) user.get("phone")
+                (String) user.get("phone"),
+                (String) user.get("role")
         );
 
         return new ResponseEntity<>(userService.updateUser(id, newUser), HttpStatus.OK);

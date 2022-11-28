@@ -32,6 +32,9 @@ public class User {
 
     @Column(nullable = false, length = 15)
     private String phone;
+    
+    @Column()
+    private String role;
 
     @JsonManagedReference
     @OneToMany(mappedBy = "pk.user", cascade = CascadeType.ALL)
@@ -40,17 +43,28 @@ public class User {
     public User () {
     }
 
-    public User (String username, String password, String email, String name, String address, String phone) {
+    public User (String username, String password, String email, String name, String address, String phone, String role) {
         this.username = username;
         this.password = password;
         this.email = email;
         this.name = name;
         this.address = address;
         this.phone = phone;
+        this.role=role;
         this.cartItems = new ArrayList<>();
     }
 
-    public long getId() {
+    
+    
+    public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public long getId() {
         return id;
     }
 
