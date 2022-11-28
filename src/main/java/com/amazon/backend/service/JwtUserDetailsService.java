@@ -8,7 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.amazon.backend.model.User;
-import com.amazon.backend.model.UserDto;
+
 import com.amazon.backend.repo.UserRepository;
 
 import java.util.ArrayList;

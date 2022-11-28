@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.amazon.backend.config.JwtUtil;
 import com.amazon.backend.model.User;
-import com.amazon.backend.model.UserDto;
+
 import com.amazon.backend.repo.UserRepository;
 import com.amazon.backend.service.JwtUserDetailsService;
 
