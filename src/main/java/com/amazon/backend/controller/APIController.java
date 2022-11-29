@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.amazon.backend.config.JwtUtil;
 import com.amazon.backend.model.Category;
+import com.amazon.backend.model.OrderDetails;
 import com.amazon.backend.model.Product;
 import com.amazon.backend.model.User;
 import com.amazon.backend.model.cart.CartItem;
@@ -43,18 +44,23 @@ public class APIController {
     private final ProductService productService;
     private final CartItemService cartItemService;
     private final CategoryService categoryService;
-
+    private final OrderDetailService orderService;
     @Autowired
     private JwtUserDetailsService jwtUserDetailsService;
 
     @Autowired
     private JwtUtil jwtUtil;
 
-    public APIController(CategoryService categoryService,UserService userService, ProductService productService, CartItemService cartItemService) {
+    public APIController(OrderDetailService orderService,
+    		CategoryService categoryService,
+    		UserService userService, 
+    		ProductService productService, 
+    		CartItemService cartItemService) {
         this.userService = userService;
         this.productService = productService;
         this.cartItemService = cartItemService;
         this.categoryService=categoryService;
+       this.orderService=orderService;
     }
 
     @PostMapping("/create-token")
@@ -239,4 +245,41 @@ public class APIController {
                                                  @PathVariable("productId") Long productId) {
         return ResponseEntity.ok(cartItemService.getCartItem(id, productId));
     }
+    
+    
+    @GetMapping("/order/{id}")
+	public OrderDetails getId(@PathVariable Long id) {
+		return orderService.getId(id);
+	}
+
+	@GetMapping("/order")
+	public List<OrderDetails> getOrders() {
+		return orderService.getAllOrders();
+	}
+	
+	@PostMapping("/add-order")
+	public ResponseEntity<?> createOrder(@RequestBody OrderDetails order) {
+		orderService.addOrder(order);
+		return new ResponseEntity<>("Order Added Successfully",HttpStatus.CREATED); 
+	}
+
+	
+	@DeleteMapping("/delete-order/{id}")
+	public ResponseEntity<?> deleteOrder(@PathVariable Long id) {
+		orderService.deleteOrder(id);
+		return new ResponseEntity<>("Order Deleted Successfully",HttpStatus.OK); 
+	}
+	
+	@PutMapping("/update-order/{id}")
+	public ResponseEntity<?> updateOrder(@PathVariable Long id,@RequestBody OrderDetails or) {
+		orderService.updateOrder(id, or);
+		return new ResponseEntity<>("Order Updated Successfully",HttpStatus.NO_CONTENT); 
+	}
+	
+	@PatchMapping("/update-order/{id}")
+	public ResponseEntity<?> updatePartialyOrder(@PathVariable Long id,@RequestBody OrderDetails or) {
+		orderService.updateOrder(id, or);
+		return new ResponseEntity<>("Order Updated Successfully",HttpStatus.NO_CONTENT); 
+	}
+    
 }
