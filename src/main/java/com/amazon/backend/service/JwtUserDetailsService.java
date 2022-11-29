@@ -8,7 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.amazon.backend.model.User;
-import com.amazon.backend.model.UserDto;
+
 import com.amazon.backend.repo.UserRepository;
 
 import java.util.ArrayList;
@@ -35,7 +35,7 @@ public class JwtUserDetailsService implements UserDetailsService {
 
     public User save (User user) {
         User newUser = new User(user.getUsername(), bcryptEncoder.encode(user.getPassword()), user.getEmail(),
-                user.getName(), user.getAddress(), user.getPhone());
+                user.getName(), user.getAddress(), user.getPhone(),user.getRole());
 
         return repo.save(newUser);
     }

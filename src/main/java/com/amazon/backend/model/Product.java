@@ -1,7 +1,7 @@
 package com.amazon.backend.model;
 
 import com.amazon.backend.dto.ProductDto;
-import com.amazon.backend.model.cart.CartItem;
+import com.amazon.backend.model.CartItem;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

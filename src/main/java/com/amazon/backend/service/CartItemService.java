@@ -4,8 +4,7 @@ import org.springframework.stereotype.Service;
 
 import com.amazon.backend.exceptions.CartItemAlreadyExistsException;
 import com.amazon.backend.exceptions.CartItemDoesNotExistsException;
-import com.amazon.backend.model.cart.CartItem;
-import com.amazon.backend.model.cart.CartItemPK;
+import com.amazon.backend.model.CartItem;
 import com.amazon.backend.repo.CartItemRepository;
 
 import javax.transaction.Transactional;

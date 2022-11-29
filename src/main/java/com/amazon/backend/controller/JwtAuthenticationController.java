@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.amazon.backend.config.JwtUtil;
 import com.amazon.backend.model.User;
-import com.amazon.backend.model.UserDto;
+
 import com.amazon.backend.repo.UserRepository;
 import com.amazon.backend.service.JwtUserDetailsService;
 
@@ -57,7 +57,8 @@ public class JwtAuthenticationController {
                 (String) user.get("email"),
                 (String) user.get("name"),
                 (String) user.get("address"),
-                (String) user.get("phone")
+                (String) user.get("phone"),
+                (String) user.get("role")
         );
 
         if (newUser.getUsername() == null) {
